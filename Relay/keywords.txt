@@ -1,0 +1,24 @@
+#######################################
+# Syntax Coloring Map For Relay Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+Relay	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+setPins	KEYWORD2
+turnOn	KEYWORD2
+turnOff	KEYWORD2
+toggle	KEYWORD2
+turnOnByPin	KEYWORD2
+turnOffByPin	KEYWORD2
+turnOnAll	KEYWORD2
+turnOffAll	KEYWORD2
+getState	KEYWORD2
+getAllStates	KEYWORD2
+setActiveLow	KEYWORD2

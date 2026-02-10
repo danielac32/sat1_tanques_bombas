@@ -1,20 +1,16 @@
-#include <HCSR04.h>
+#include <Relay.h>
+
+
+
+ 
 #include <Taskfun.h>
 #include <OneWire.h>
 #include <DallasTemperature.h>
 
-
-
-HCSR04 hc(44, new int[4]{42, 40, 38, 36}, 4); //initialisation class HCSR04 (trig pin , echo pin, number of sensor)
-
-
+ 
 
 #define ONE_WIRE_BUS 46
-
-// Setup a oneWire instance to communicate with any OneWire device
 OneWire oneWire(ONE_WIRE_BUS);
-
-// Pass oneWire reference to DallasTemperature library
 DallasTemperature sensors(&oneWire);
 int deviceCount = 0;
 float tempC;
@@ -33,10 +29,7 @@ void setup()
     Serial.print(deviceCount, DEC);
     Serial.println(" devices.");
     Serial.println("");
-
-
     
-  
     Serial.println("Sistema listo");
     Serial.println("========================");
     setupTasks();
@@ -78,15 +71,7 @@ void Led(int t){
 
 void Distancia(int t){
   while(1){
-    for (int i = 0; i < 4; i++) {
-        float distancia = hc.dist(i);
-        // Opción B: Todo en una línea
-        Serial.print("S");
-        Serial.print(i);
-        Serial.print(":");
-        Serial.print(distancia, 1);  // 1 decimal
-        Serial.println("cm ");
-    }
+    
     delay(1000);  
   }
 }
@@ -98,3 +83,40 @@ void loop()
 {
                     
 }
+
+/*
+ 
+
+#define trigPin 12
+#define echoPin 11
+
+long duration;
+int distance;
+
+ 
+void setup() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+   
+  Serial.begin(9600);
+}
+
+void loop() {
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(5);
+
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+
+  distance = duration*0.034/2;
+
+  Serial.print("Distance = ");
+  Serial.print(distance);
+  Serial.println(" cm");
+ 
+}
+ * /
+ */
